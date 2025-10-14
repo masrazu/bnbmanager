@@ -36,19 +36,48 @@ const FullServiceBnBWebsite = () => {
     };
   };
 
-  const handleSubmit = () => {
-    alert('Thank you for your interest! We will contact you within 24 hours to schedule your free consultation.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      address: '',
-      propertyType: '',
-      bedrooms: '',
-      package: '',
-      message: ''
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  
+  // Get form data
+  const form = e.target.closest('div').parentElement;
+  const formData = new FormData();
+  
+  formData.append('form-name', 'contact');
+  formData.append('name', document.getElementById('name').value);
+  formData.append('email', document.getElementById('email').value);
+  formData.append('phone', document.getElementById('phone').value);
+  formData.append('address', document.getElementById('address').value);
+  formData.append('propertyType', document.getElementById('propertyType').value);
+  formData.append('bedrooms', document.getElementById('bedrooms').value);
+  formData.append('package', document.getElementById('package').value);
+  formData.append('message', document.getElementById('message').value);
+
+  try {
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
     });
-  };
+
+    if (response.ok) {
+      alert('Thank you! We will contact you within 24 hours.');
+      // Clear form
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('phone').value = '';
+      document.getElementById('address').value = '';
+      document.getElementById('propertyType').value = '';
+      document.getElementById('bedrooms').value = '';
+      document.getElementById('package').value = '';
+      document.getElementById('message').value = '';
+    } else {
+      alert('Sorry, there was an error. Please try again or email us directly at bnbmanager.fi@gmail.com');
+    }
+  } catch (error) {
+    alert('Sorry, there was an error. Please try again or email us directly at bnbmanager.fi@gmail.com');
+  }
+};
 
   const revenue = calculateRevenue();
 
@@ -107,13 +136,13 @@ const FullServiceBnBWebsite = () => {
     {
       name: 'Mikko T.',
       location: 'Helsinki',
-      text: 'I travel for work 6 months a year and was wasting my apartment\'s potential. Full Service BnB turned it into €18,000 in annual income. They handle absolutely everything – I just check my bank account each month!',
+      text: 'I travel for work 6 months a year and was wasting my apartment\'s potential. BnB Manager Finland turned it into €18,000 in annual income. They handle absolutely everything – I just check my bank account each month!',
       rating: 5
     },
     {
       name: 'Laura K.',
       location: 'Espoo',
-      text: 'After the 2026 regulation announcement, I was confused about whether I could still rent my place. Full Service BnB explained everything, ensured I\'m compliant, and my occupancy rate is better than ever.',
+      text: 'After the 2026 regulation announcement, I was confused about whether I could still rent my place. BnB Manager Finland explained everything, ensured I\'m compliant, and my occupancy rate is better than ever.',
       rating: 5
     },
     {
@@ -159,7 +188,7 @@ const FullServiceBnBWebsite = () => {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <Home className="h-8 w-8 text-blue-600" />
-              <span className="ml-2 text-xl font-bold text-gray-900">Full Service BnB</span>
+              <span className="ml-2 text-xl font-bold text-gray-900">BnB Manager Finland</span>
             </div>
             
             {/* Desktop Navigation */}
@@ -201,7 +230,7 @@ const FullServiceBnBWebsite = () => {
             Turn Your Property Into <span className="text-blue-600">Passive Income</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Professional Airbnb Management for Helsinki Property Owners
+            Professional AirBnB Management for Greater Helsinki Property Owners
           </p>
           <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
             We handle everything – from guest communication to cleaning, pricing optimization to regulatory compliance. You focus on your life, we focus on your property's success.
@@ -240,7 +269,7 @@ const FullServiceBnBWebsite = () => {
       {/* Why Choose Us Section */}
       <section className="py-20 bg-white px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">Why Choose Full Service BnB?</h2>
+          <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">Why Choose BnB Manager Finland?</h2>
           <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
             We combine local expertise with professional service to maximize your property's potential
           </p>
@@ -372,7 +401,7 @@ const FullServiceBnBWebsite = () => {
           <div className="text-center mb-12">
             <Calculator className="h-16 w-16 text-blue-600 mx-auto mb-4" />
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Calculate Your Potential Income</h2>
-            <p className="text-xl text-gray-600">See how much your property could earn with Full Service BnB</p>
+            <p className="text-xl text-gray-600">See how much your property could earn with BnB Manager Finland</p>
           </div>
           
           <div className="bg-white rounded-xl shadow-lg p-8">
@@ -483,7 +512,7 @@ const FullServiceBnBWebsite = () => {
           <div className="mt-12 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl p-8 text-center">
             <h3 className="text-2xl font-bold mb-4">90-Day Money-Back Guarantee</h3>
             <p className="text-blue-100 mb-6">
-              Try Full Service BnB risk-free. If you're not satisfied with our service, cancel with 30 days' notice. No penalties. No questions asked.
+              Try BnB Manager Finland risk-free. If you're not satisfied with our service, cancel with 30 days' notice. No penalties. No questions asked.
             </p>
             <p className="text-sm text-blue-200">*Applies to Full Service and Premium packages only</p>
           </div>
@@ -508,7 +537,7 @@ const FullServiceBnBWebsite = () => {
                   <Phone className="h-6 w-6 text-blue-600 mr-4 mt-1" />
                   <div>
                     <div className="font-semibold text-gray-900">Phone</div>
-                    <div className="text-gray-600">+358 XX XXX XXXX</div>
+                    <div className="text-gray-600">+358 44 9866 440</div>
                   </div>
                 </div>
                 
@@ -516,7 +545,7 @@ const FullServiceBnBWebsite = () => {
                   <Mail className="h-6 w-6 text-blue-600 mr-4 mt-1" />
                   <div>
                     <div className="font-semibold text-gray-900">Email</div>
-                    <div className="text-gray-600">info@fullservicebnb.fi</div>
+                    <div className="text-gray-600">bnbmanager.fi@gmail.com</div>
                   </div>
                 </div>
                 
@@ -692,7 +721,7 @@ const FullServiceBnBWebsite = () => {
             <div>
               <div className="flex items-center mb-4">
                 <Home className="h-8 w-8 text-blue-400" />
-                <span className="ml-2 text-xl font-bold">Full Service BnB</span>
+                <span className="ml-2 text-xl font-bold">BnB Manager Finland</span>
               </div>
               <p className="text-gray-400">
                 Professional Airbnb Management for Greater Helsinki
@@ -722,15 +751,15 @@ const FullServiceBnBWebsite = () => {
             <div>
               <h4 className="font-bold mb-4">Contact</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>+358 XX XXX XXXX</li>
-                <li>info@fullservicebnb.fi</li>
+                <li>+358 44 9866 440</li>
+                <li>bnbmanager.fi@gmail.com</li>
                 <li>Helsinki, Espoo, Vantaa</li>
               </ul>
             </div>
           </div>
           
           <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Full Service BnB. All rights reserved.</p>
+            <p>&copy; 2025 BnB Manager Finland. All rights reserved.</p>
             <p className="mt-2 text-sm">Your Property. Our Expertise. Passive Income.</p>
           </div>
         </div>
