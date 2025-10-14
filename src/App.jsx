@@ -84,7 +84,7 @@ const handleSubmit = async (e) => {
   const packages = [
     {
       name: 'Essential',
-      price: '15-18%',
+      price: '17%',
       description: 'For hands-on owners who want professional listing optimization',
       features: [
         'Listing optimization on Airbnb & Booking.com',
@@ -98,7 +98,7 @@ const handleSubmit = async (e) => {
     },
     {
       name: 'Full Service',
-      price: '22-28%',
+      price: '27%',
       description: 'Completely hands-off – we handle everything',
       features: [
         'Everything in Essential package',
@@ -115,7 +115,7 @@ const handleSubmit = async (e) => {
     },
     {
       name: 'Premium',
-      price: '30-35%',
+      price: '40%',
       description: 'White-glove service with maximum revenue optimization',
       features: [
         'Everything in Full Service package',
@@ -187,8 +187,8 @@ const handleSubmit = async (e) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <Home className="h-8 w-8 text-blue-600" />
-              <span className="ml-2 text-xl font-bold text-gray-900">BnB Manager Finland</span>
+              <img src="/logo.png" alt="BnB Manager Finland" className="h-10" />
+              <span className="ml-2 text-xl font-bold text-gray-900"></span>
             </div>
             
             {/* Desktop Navigation */}
@@ -680,9 +680,9 @@ const handleSubmit = async (e) => {
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                   >
                     <option value="">Select package</option>
-                    <option value="essential">Essential (15-18%)</option>
-                    <option value="full">Full Service (22-28%)</option>
-                    <option value="premium">Premium (30-35%)</option>
+                    <option value="essential">Essential (17%)</option>
+                    <option value="full">Full Service (28%)</option>
+                    <option value="premium">Premium (40%)</option>
                     <option value="not-sure">Not sure yet</option>
                   </select>
                 </div>
