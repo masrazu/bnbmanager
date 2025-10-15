@@ -80,7 +80,7 @@ const BnBManagerFinland = () => {
   const packages = [
     {
       name: 'Essential',
-      price: '17%',
+      price: '15-18%',
       description: 'For hands-on owners who want professional listing optimization',
       features: [
         'Listing optimization on Airbnb & Booking.com',
@@ -94,7 +94,7 @@ const BnBManagerFinland = () => {
     },
     {
       name: 'Full Service',
-      price: '30%',
+      price: '22-28%',
       description: 'Completely hands-off – we handle everything',
       features: [
         'Everything in Essential package',
@@ -111,7 +111,7 @@ const BnBManagerFinland = () => {
     },
     {
       name: 'Premium',
-      price: '50%',
+      price: '30-35%',
       description: 'White-glove service with maximum revenue optimization',
       features: [
         'Everything in Full Service package',
@@ -228,16 +228,16 @@ const BnBManagerFinland = () => {
       </nav>
 
       {/* 1. Hero Section - Turn Your Property Into Passive Income */}
-      <section id="home" className="pt-20 pb-32 px-4 sm:px-6 lg:px-8 bg-white">
+      <section id="home" className="pt-20 pb-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50 to-white">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
             Turn Your Property Into <span className="text-orange-500">Passive Income</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Professional Airbnb Management for Greater Helsinki Property Owners
+            Professional Airbnb Management for Helsinki Property Owners
           </p>
           <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
-            We handle everything - from guest communication to cleaning, pricing optimization to regulatory compliance. You focus on your life, we focus on your property's success.
+            We handle everything – from guest communication to cleaning, pricing optimization to regulatory compliance. You focus on your life, we focus on your property's success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button onClick={() => scrollToSection('contact')} className="bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition shadow-lg">
@@ -271,7 +271,7 @@ const BnBManagerFinland = () => {
       </section>
 
       {/* 2. Revenue Calculator - Calculate Your Potential Income */}
-      <section id="calculator" className="py-20 bg-gradient-to-br from-orange-50 via-blue-50 to-indigo-50 px-4 sm:px-6 lg:px-8">
+      <section id="calculator" className="py-20 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <Calculator className="h-16 w-16 text-orange-500 mx-auto mb-4" />
@@ -422,7 +422,7 @@ const BnBManagerFinland = () => {
       </section>
 
       {/* 5. Testimonials - What Our Clients Say */}
-      <section className="py-20 bg-gradient-to-br from-blue-100 via-blue-50 to-indigo-50 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">What Our Clients and Customers Say</h2>
           <p className="text-xl text-gray-600 text-center mb-16">Real results from real property owners in Helsinki</p>
@@ -445,7 +445,7 @@ const BnBManagerFinland = () => {
       </section>
 
       {/* 6. FAQ - Frequently Asked Questions */}
-      <section id="faq" className="py-20 bg-gradient-to-br from-white via-gray-50 to-blue-50 px-4 sm:px-6 lg:px-8">
+      <section id="faq" className="py-20 bg-white px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <HelpCircle className="h-16 w-16 text-orange-500 mx-auto mb-4" />
@@ -455,7 +455,7 @@ const BnBManagerFinland = () => {
           
           <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-blue-50 rounded-lg shadow-md p-6">
+              <div key={index} className="bg-gray-50 rounded-lg shadow-md p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{faq.q}</h3>
                 <p className="text-gray-600">{faq.a}</p>
               </div>
@@ -473,7 +473,7 @@ const BnBManagerFinland = () => {
       </section>
 
       {/* 7. Contact Form - Ready to Get Started? */}
-      <section id="contact" className="py-20 bg-gradient-to-br from-indigo-50 via-blue-50 to-white px-4 sm:px-6 lg:px-8">
+      <section id="contact" className="py-20 bg-gradient-to-br from-orange-50 via-amber-50 to-white px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <Phone className="h-16 w-16 text-orange-500 mx-auto mb-4" />
@@ -520,7 +520,7 @@ const BnBManagerFinland = () => {
                 </div>
               </div>
 
-              <div className="mt-8 bg-blue-50 rounded-lg p-6">
+              <div className="mt-8 bg-orange-50 rounded-lg p-6">
                 <h4 className="font-bold text-gray-900 mb-3">What to Expect:</h4>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start">
@@ -691,7 +691,7 @@ const BnBManagerFinland = () => {
             <div>
               <h4 className="font-bold mb-4">Contact</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>+258 44 9866 440</li>
+                <li>+358 44 9866 440</li>
                 <li>bnbmanager.fi@gmail.com</li>
                 <li>Helsinki, Espoo, Vantaa</li>
               </ul>
