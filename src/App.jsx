@@ -5,8 +5,23 @@ const BnBManagerFinland = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [calculatorInputs, setCalculatorInputs] = useState({
     nightlyRate: 90,
-    occupancy: 75
+    occupancy: 75,
+    feePercentage: 30
   });
+  const [selectedPackage, setSelectedPackage] = useState(null);
+
+  // ===== EDIT THESE VALUES TO CHANGE PACKAGE PERCENTAGES AND NAMES =====
+  const packagePresets = [
+    { name: 'Essential', percentage: 20, color: 'blue' },
+    { name: 'Full Service', percentage: 30, color: 'orange' },
+    { name: 'Premium', percentage: 45, color: 'indigo' }
+  ];
+  // ===== END OF EDITABLE SECTION =====
+
+  const handlePackageSelect = (pkg) => {
+    setCalculatorInputs({...calculatorInputs, feePercentage: pkg.percentage});
+    setSelectedPackage(pkg.name);
+  };
 
   const scrollToSection = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -16,13 +31,14 @@ const BnBManagerFinland = () => {
   const calculateRevenue = () => {
     const nightsPerMonth = 30 * (calculatorInputs.occupancy / 100);
     const monthlyGross = calculatorInputs.nightlyRate * nightsPerMonth;
-    const managementFee = monthlyGross * 0.25;
+    const managementFee = monthlyGross * (calculatorInputs.feePercentage / 100);
     const netIncome = monthlyGross - managementFee;
     return {
       monthlyGross: monthlyGross.toFixed(0),
       annualGross: (monthlyGross * 12).toFixed(0),
       netMonthly: netIncome.toFixed(0),
-      netAnnual: (netIncome * 12).toFixed(0)
+      netAnnual: (netIncome * 12).toFixed(0),
+      feePercentage: calculatorInputs.feePercentage
     };
   };
 
@@ -80,7 +96,7 @@ const BnBManagerFinland = () => {
   const packages = [
     {
       name: 'Essential',
-      price: '15-18%',
+      price: '17%',
       description: 'For hands-on owners who want professional listing optimization',
       features: [
         'Listing optimization on Airbnb & Booking.com',
@@ -94,7 +110,7 @@ const BnBManagerFinland = () => {
     },
     {
       name: 'Full Service',
-      price: '22-28%',
+      price: '30%',
       description: 'Completely hands-off – we handle everything',
       features: [
         'Everything in Essential package',
@@ -111,7 +127,7 @@ const BnBManagerFinland = () => {
     },
     {
       name: 'Premium',
-      price: '30-35%',
+      price: '45%',
       description: 'White-glove service with maximum revenue optimization',
       features: [
         'Everything in Full Service package',
@@ -228,13 +244,13 @@ const BnBManagerFinland = () => {
       </nav>
 
       {/* 1. Hero Section - Turn Your Property Into Passive Income */}
-      <section id="home" className="pt-20 pb-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-blue-50 to-white">
+      <section id="home" className="pt-20 pb-32 px-4 sm:px-6 lg:px-8" style={{backgroundColor: 'rgb(238, 246, 255)'}}>
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
             Turn Your Property Into <span className="text-orange-500">Passive Income</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Professional Airbnb Management for Helsinki Property Owners
+            Professional Airbnb Management for Greater Helsinki Property Owners
           </p>
           <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
             We handle everything – from guest communication to cleaning, pricing optimization to regulatory compliance. You focus on your life, we focus on your property's success.
@@ -280,7 +296,7 @@ const BnBManagerFinland = () => {
           </div>
           
           <div className="bg-white rounded-xl shadow-lg p-8">
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">
                   Average Nightly Rate (€)
@@ -289,7 +305,7 @@ const BnBManagerFinland = () => {
                   type="number"
                   value={calculatorInputs.nightlyRate}
                   onChange={(e) => setCalculatorInputs({...calculatorInputs, nightlyRate: parseInt(e.target.value) || 0})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                 />
               </div>
               
@@ -301,8 +317,53 @@ const BnBManagerFinland = () => {
                   type="number"
                   value={calculatorInputs.occupancy}
                   onChange={(e) => setCalculatorInputs({...calculatorInputs, occupancy: parseInt(e.target.value) || 0})}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                 />
+              </div>
+
+              <div>
+                <label className="block text-gray-700 font-semibold mb-2">
+                  Management Fee (%)
+                </label>
+                <input
+                  type="number"
+                  value={calculatorInputs.feePercentage}
+                  onChange={(e) => {
+                    setCalculatorInputs({...calculatorInputs, feePercentage: parseInt(e.target.value) || 0});
+                    setSelectedPackage(null);
+                  }}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  placeholder="Enter fee %"
+                />
+              </div>
+            </div>
+
+            {/* Package Preset Buttons */}
+            <div className="mb-8">
+              <p className="text-center text-gray-600 font-semibold mb-4">Or select a package:</p>
+              <div className="grid grid-cols-3 gap-4">
+                {packagePresets.map((pkg, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handlePackageSelect(pkg)}
+                    className={`py-4 px-4 rounded-lg font-semibold transition-all ${
+                      selectedPackage === pkg.name
+                        ? pkg.color === 'blue' 
+                          ? 'bg-blue-600 text-white shadow-lg transform scale-105'
+                          : pkg.color === 'orange'
+                          ? 'bg-orange-500 text-white shadow-lg transform scale-105'
+                          : 'bg-indigo-600 text-white shadow-lg transform scale-105'
+                        : pkg.color === 'blue'
+                        ? 'bg-blue-50 text-blue-700 hover:bg-blue-100 border-2 border-blue-200'
+                        : pkg.color === 'orange'
+                        ? 'bg-orange-50 text-orange-700 hover:bg-orange-100 border-2 border-orange-200'
+                        : 'bg-indigo-50 text-indigo-700 hover:bg-indigo-100 border-2 border-indigo-200'
+                    }`}
+                  >
+                    <div className="text-lg font-bold">{pkg.name}</div>
+                    <div className="text-2xl font-bold mt-1">{pkg.percentage}%</div>
+                  </button>
+                ))}
               </div>
             </div>
 
@@ -314,7 +375,7 @@ const BnBManagerFinland = () => {
                   <div className="text-3xl font-bold">€{revenue.monthlyGross}</div>
                 </div>
                 <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-blue-100 text-sm mb-1">Your Net Income (after 25% fee)</div>
+                  <div className="text-blue-100 text-sm mb-1">Your Net Income (after {revenue.feePercentage}% fee)</div>
                   <div className="text-3xl font-bold">€{revenue.netMonthly}</div>
                 </div>
                 <div className="bg-white/10 rounded-lg p-4">
@@ -327,7 +388,7 @@ const BnBManagerFinland = () => {
                 </div>
               </div>
               <p className="text-center text-blue-100 mt-6 text-sm">
-                Based on Full Service package (25% management fee)
+                Based on {revenue.feePercentage}% management fee
               </p>
             </div>
 
