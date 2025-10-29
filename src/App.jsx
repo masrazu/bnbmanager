@@ -96,7 +96,7 @@ const BnBManagerFinland = () => {
   const packages = [
     {
       name: 'Essential',
-      price: '17%',
+      price: '20%',
       description: 'For hands-on owners who want professional listing optimization',
       features: [
         'Listing optimization on Airbnb & Booking.com',
