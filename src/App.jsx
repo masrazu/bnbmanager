@@ -680,9 +680,9 @@ const BnBManagerFinland = () => {
                   <label className="block text-gray-700 font-semibold mb-2">Interested Package</label>
                   <select id="package" className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                     <option value="">Select package</option>
-                    <option value="essential">Essential (15-18%)</option>
-                    <option value="full">Full Service (22-28%)</option>
-                    <option value="premium">Premium (30-35%)</option>
+                    <option value="essential">Essential (20%)</option>
+                    <option value="full">Full Service (30%)</option>
+                    <option value="premium">Premium (45%)</option>
                     <option value="not-sure">Not sure yet</option>
                   </select>
                 </div>
