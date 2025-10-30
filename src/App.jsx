@@ -114,7 +114,7 @@ const BnBManagerFinland = () => {
       description: 'Completely hands-off – we manage everything for you',
       features: [
         'Everything in Essential package',
-        'Professional photography and listing management'
+        'Professional photography and listing management',
         'Professional cleaning after every checkout',
         'All bed linen and towel laundering',
         'Guest check-in and check-out (smart locks or key locker)',
