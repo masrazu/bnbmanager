@@ -97,45 +97,44 @@ const BnBManagerFinland = () => {
     {
       name: 'Essential',
       price: '20%',
-      description: 'For hands-on owners who want professional listing optimization',
+      description: 'Perfect for hands-on owners who handle the property themselves',
       features: [
-        'Listing optimization on Airbnb & Booking.com',
-        'Guest communication & booking management',
-        'Basic coordination with cleaners',
-        'Monthly performance reports',
-        'Business hours support (9-18 Mon-Fri)',
-        'Calendar management across platforms'
+        'Create and optimize your listing on Airbnb & Booking.com',
+        'Respond to all guest inquiries and manage bookings',
+        'Schedule cleaners between stays (you pay cleaner directly)',
+        'Sync your calendar across all platforms',
+        'Provide monthly performance reports',
+        'Online guest support 24/7'
       ],
       recommended: false
     },
     {
       name: 'Full Service',
       price: '30%',
-      description: 'Completely hands-off – we handle everything',
+      description: 'Completely hands-off – we manage everything for you',
       features: [
         'Everything in Essential package',
+        'Professional photography and listing management'
         'Professional cleaning after every checkout',
-        'Check-in/check-out management',
-        'Dynamic AI pricing optimization',
-        '24/7 emergency guest support',
-        'Maintenance coordination',
-        'Supply restocking & management',
-        'Damage inspection with photos',
-        'Enhanced financial reporting'
+        'All bed linen and towel laundering',
+        'Guest check-in and check-out (smart locks or key locker)',
+        'Dynamic pricing optimization to maximize your income',
+        'Restocking all supplies (toilet paper, soap, etc.)',
+        'Coordinating maintenance and repairs',
+        'Detailed monthly financial reports'
       ],
       recommended: true
     },
     {
       name: 'Premium',
       price: '45%',
-      description: 'White-glove service with maximum revenue optimization',
+      description: 'Complete turnkey service – from empty apartment to income-generating property',
       features: [
         'Everything in Full Service package',
-        'Professional photography session',
-        'Interior design consultation',
-        'Premium guest experience & concierge',
-        'Dedicated account manager',
-        'Tax documentation support',
+        'Complete property setup – furniture, decoration, everything',
+        'Initial supply purchase – bed linens, towels, kitchen items, cleaning supplies',
+        'Nordic-style interior design and staging',
+        'Tax documentation and reporting support',
         'Quarterly property reviews',
         'Priority same-day response',
         'Seasonal maintenance planning'
@@ -146,21 +145,21 @@ const BnBManagerFinland = () => {
 
   const testimonials = [
     {
-      name: 'Mikko T.',
-      location: 'Helsinki',
-      text: 'I travel for work 6 months a year and was wasting my apartment\'s potential. BnB Manager Finland turned it into €18,000 in annual income. They handle absolutely everything – I just check my bank account each month!',
+      name: 'Shaf.',
+      location: 'Oulu',
+      text: 'The room was cozy and bed was comfortable. Instructions were clear, they made sure to maintain our privacy and the room smelled nice and looked really clean!',
       rating: 5
     },
     {
-      name: 'Laura K.',
-      location: 'Espoo',
-      text: 'After the 2026 regulation announcement, I was confused about whether I could still rent my place. BnB Manager Finland explained everything, ensured I\'m compliant, and my occupancy rate is better than ever.',
+      name: 'Fed.',
+      location: 'Tampere',
+      text: 'All went well! Asif helped me to find the appartament with pictures of the way to go and written instructions. Thank you Asif for welcoming me in to your place!',
       rating: 5
     },
     {
-      name: 'Jonas P.',
-      location: 'Vantaa',
-      text: 'The cleaning quality is exceptional. Guests consistently mention how spotless the apartment is. My ratings went from 4.2 to 4.9 stars in three months.',
+      name: 'Sam.',
+      location: 'Netherlands',
+      text: 'Great stay, with a very nice host, very spacious room too!',
       rating: 5
     }
   ];
@@ -176,7 +175,7 @@ const BnBManagerFinland = () => {
     },
     {
       q: 'Can I use my apartment sometimes?',
-      a: 'Absolutely! You control your calendar. Block dates whenever you need your property. Many clients rent only when traveling.'
+      a: 'Absolutely! You have control on your property booking calendar. Consult with us and we will block dates for you. Many clients rent only when traveling.'
     },
     {
       q: 'What about the 2026 regulations?',
@@ -188,7 +187,7 @@ const BnBManagerFinland = () => {
     },
     {
       q: 'What if there\'s property damage?',
-      a: 'Airbnb provides Host Damage Protection up to €1,000,000. We also require security deposits and thoroughly document property condition.'
+      a: 'AirBnB provides Host Damage Protection up to €1,000,000. We also require security deposits and thoroughly document property condition.'
     }
   ];
 
@@ -375,7 +374,7 @@ const BnBManagerFinland = () => {
                   <div className="text-3xl font-bold">€{revenue.monthlyGross}</div>
                 </div>
                 <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-blue-100 text-sm mb-1">Your Net Income (after {revenue.feePercentage}% fee)</div>
+                  <div className="text-blue-100 text-sm mb-1">Your Monthly Net Income (after {revenue.feePercentage}% fee)</div>
                   <div className="text-3xl font-bold">€{revenue.netMonthly}</div>
                 </div>
                 <div className="bg-white/10 rounded-lg p-4">
